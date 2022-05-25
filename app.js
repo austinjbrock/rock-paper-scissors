@@ -1,17 +1,25 @@
+//Target DOM elements for user input
+const chooseRock = document.getElementById('rock-div')
+const choosePaper = document.getElementById('paper-div')
+const chooseScissors = document.getElementById('scissors-div')
+chooseRock.addEventListener('click',()=>{
+   alert('clicked')
+})
+
 const choices = ['rock','paper','scissors']
 
 //Grab user input
 function playerChoice (){
-   let input = prompt('Enter Rock, Paper, or Scissors')
-   input = input.toLowerCase()
+   // let input = prompt('Enter Rock, Paper, or Scissors')
+   // input = input.toLowerCase()
    return input
 } 
-// Get Computer input
+// Get Computer choice
  function computerChoice(){
   return choices[Math.floor(Math.random()* choices.length)]
  }
 
-// 
+//Plays round against the computer
 function playRound(){
 
 const computerSelection = computerChoice()
