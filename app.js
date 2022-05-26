@@ -2,9 +2,7 @@
 const chooseRock = document.getElementById('rock-div')
 const choosePaper = document.getElementById('paper-div')
 const chooseScissors = document.getElementById('scissors-div')
-chooseRock.addEventListener('click',()=>{
-   alert('clicked')
-})
+
 
 const choices = ['rock','paper','scissors']
 
@@ -12,7 +10,7 @@ const choices = ['rock','paper','scissors']
 function playerChoice (){
    // let input = prompt('Enter Rock, Paper, or Scissors')
    // input = input.toLowerCase()
-   return input
+   // return input
 } 
 // Get Computer choice
  function computerChoice(){
@@ -24,6 +22,8 @@ function playRound(){
 
 const computerSelection = computerChoice()
 const playerSelection = playerChoice()
+
+
 
 
 if (playerSelection === "rock") {
@@ -64,6 +64,3 @@ console.log(`Computer Chose ${computerSelection}`)
 
 //Call the playRound Function to start score
 playRound(playerChoice,computerChoice)
-
-
-
