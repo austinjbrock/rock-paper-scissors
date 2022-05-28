@@ -1,66 +1,49 @@
-//Target DOM elements for user input
-const chooseRock = document.getElementById('rock-div')
-const choosePaper = document.getElementById('paper-div')
-const chooseScissors = document.getElementById('scissors-div')
+const buttons = document.querySelectorAll('input')
+let playerScore = 0
+let computerScore = 0;
+
+//grabs computer hand
+
+function computerChoice(){
+    const choices = ['rock','paper','scissors']
+
+    return( choices[Math.floor(Math.random()* choices.length)])
+   }
 
 
-const choices = ['rock','paper','scissors']
 
-//Grab user input
-function playerChoice (){
-   // let input = prompt('Enter Rock, Paper, or Scissors')
-   // input = input.toLowerCase()
-   // return input
+function playRound(playerSelection){
+    const computerSelection = computerChoice()
+
+    console.log('computer chose ' + computerSelection)
+
+    if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+    (playerSelection == 'scissors' && computerSelection == 'paper') ||
+    (playerSelection == 'paper' && computerSelection == 'rock')) {
+        alert('player Wins')
 } 
-// Get Computer choice
- function computerChoice(){
-  return choices[Math.floor(Math.random()* choices.length)]
- }
 
-//Plays round against the computer
-function playRound(){
+if ((computerSelection == 'rock' && playerSelection == 'scissors') ||
+(computerSelection == 'scissors' && playerSelection == 'paper') ||
+(computerSelection == 'paper' && playerSelection == 'rock')) {
+    alert('Computer Wins')
+} 
 
-const computerSelection = computerChoice()
-const playerSelection = playerChoice()
-
-
-
-
-if (playerSelection === "rock") {
-   if (computerSelection === "rock") {
-       console.log( "Draw!")
-   } else if (computerSelection === "paper") {
-       console.log( "Computer wins!")
-   } else {
-       console.log( "Player wins!")
-   }
-
-} else if (playerSelection === "paper") {
-   if (computerSelection === "rock") {
-       console.log( "Player wins!")
-   } else if (computerSelection === "paper") {
-       console.log( "Draw!")
-   } else {
-       console.log( "Computer wins!")
-   }
-
-} else {
-   if (computerSelection === "rock") {
-       console.log( "Computer wins!")
-   } else if (computerSelection === "paper") {
-       console.log( "Player wins!")
-   } else {
-       console.log( "Draw!")
-   }
-
-
-
+if(playerSelection == computerSelection){
+    alert('Draw')
 }
 
-console.log(`player chose ${playerSelection}`)
-console.log(`Computer Chose ${computerSelection}`)
 
-}// End PlayRound Function
 
-//Call the playRound Function to start score
-playRound(playerChoice,computerChoice)
+}//end playRound function
+
+
+
+buttons.forEach(button=>{
+    button.addEventListener('click',function(e){
+    playRound(button.value.toLowerCase())
+
+    console.log('Player Chose ' + button.value)
+    })
+})
+// End playround function
