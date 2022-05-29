@@ -1,18 +1,36 @@
 body {
    margin: 0;
    padding: 0;
-   background-color: #e0e1e3;
    text-align: center;
+   color: rgb(125, 121, 121);
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #icon-box {
+   width: 400px;
    text-align: center;
    display: flex;
    justify-content: space-between;
-   border: 2px solid black;
-   margin: 10px 20px;
+   border: 2px solid linear-gradient(20deg, rgba(185,67,155,1) 20%);
+   margin: 0 auto;
+   padding: 20px
+}
+input {
+   height: 40px;
+   border-radius: 5px;
+   background-color: blue;
+   color: #fff;
+   border: none;
+   font-size: 20px;
+   padding: 12px;
+
 }
 
 .hand-title {
    margin: 5px 10px;
 }
+
+.scoreboard {
+   padding-top: 15px;
+}
+
