@@ -18,7 +18,7 @@ function playRound(playerSelection){
     const computerSelection = computerChoice()
     //Draws Game if player selection and computer selection are the same
     if(computerSelection == playerSelection){
-        alert('DRAW. Play Again')
+        alert('DRAW. Play Again')  
     }
     //Player hand control flow
     if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
