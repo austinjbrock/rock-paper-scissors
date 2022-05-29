@@ -1,49 +1,53 @@
 const buttons = document.querySelectorAll('input')
 let playerScore = 0
 let computerScore = 0;
+let computerSelection;
+let playerHand = document.getElementById('player-hand')
+let computerHand = document.getElementById('computer-hand')
+let playerScoreTitle = document.getElementById('player-score-title')
+let computerScoreTitle = document.getElementById('computer-score-title')
+let winnerBox = document.getElementById('winnerBox')
 
 //grabs computer hand
-
 function computerChoice(){
-    const choices = ['rock','paper','scissors']
-
-    return( choices[Math.floor(Math.random()* choices.length)])
+    const choices = ['Rock','Paper','Scissors']
+    return( choices[Math.floor(Math.random()* choices.length)].toLowerCase())
    }
-
-
 
 function playRound(playerSelection){
     const computerSelection = computerChoice()
-
-    console.log('computer chose ' + computerSelection)
-
+    //Draws Game if player selection and computer selection are the same
+    if(computerSelection == playerSelection){
+        alert('DRAW. Play Again')
+    }
+    //Player hand control flow
     if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
     (playerSelection == 'scissors' && computerSelection == 'paper') ||
     (playerSelection == 'paper' && computerSelection == 'rock')) {
-        alert('player Wins')
+        playerScore = playerScore + 1;
+        playerScoreTitle.textContent = `Player Score : ${playerScore}`
 } 
-
-if ((computerSelection == 'rock' && playerSelection == 'scissors') ||
+//computer hand control flow
+else if ((computerSelection == 'rock' && playerSelection == 'scissors') ||
 (computerSelection == 'scissors' && playerSelection == 'paper') ||
 (computerSelection == 'paper' && playerSelection == 'rock')) {
-    alert('Computer Wins')
-} 
-
-if(playerSelection == computerSelection){
-    alert('Draw')
+    computerScore = computerScore + 1;
+    computerScoreTitle.textContent = `Computer Score : ${computerScore}`
 }
 
+computerHand.textContent = computerSelection.toLowerCase()
 
-
+// number of games up to 5 to declare a winner
+if(playerScore >=5){
+   winnerBox.textContent = 'Player Wins!'
+} else if(computerScore >=5){
+    winnerBox.textContent = 'Computer Wins!'
+}
 }//end playRound function
 
-
-
+// on click buttons for player to choose a hand
 buttons.forEach(button=>{
     button.addEventListener('click',function(e){
     playRound(button.value.toLowerCase())
-
-    console.log('Player Chose ' + button.value)
-    })
+    playerHand.textContent = button.value})
 })
-// End playround function
