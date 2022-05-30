@@ -1,18 +1,43 @@
 body {
    margin: 0;
    padding: 0;
-   background-color: #e0e1e3;
+   background-color: #0a1833;
    text-align: center;
+   color: #fff;
 }
 
 #icon-box {
    text-align: center;
    display: flex;
    justify-content: space-between;
-   border: 2px solid black;
-   margin: 10px 20px;
+   margin: 0 auto;
+   width: 600px;
 }
 
 .hand-title {
    margin: 5px 10px;
+}
+
+input{
+   font-size: 23px;
+   text-align: center;
+   padding: 5px;
+   background-color: #e3e3b5;
+   color: #0a1833;
+   border-radius: 5px;
+}
+
+input:hover {
+   background-color: aqua;
+}
+
+
+.chosen-hand-box{
+   margin-top: 50px;
+   text-align: center;
+   font-size: 24px;
+}
+
+.scoreboard {
+   font-size: 24px;
 }
